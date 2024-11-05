@@ -75,8 +75,9 @@ function App() {
 
     return (
         <div className="tic-tac-toe">
-            <h1>TIC-TAC-TOE</h1>
-            <Button resetGame={resetGame} />
+            <h1>TIC-TAC-TOE</h1><br/>
+            <h1>TRUMP VS. HARRIS</h1>
+            <Button resetGame={resetGame}/>
             <div className="game">
                 {Array.from("012345678").map((ind) => (
                     <Square
@@ -88,39 +89,39 @@ function App() {
                 ))}
             </div>
             <div className={`turn ${turn === "x" ? "left" : "right"}`}>
-                <Square clsName="x" />
-                <Square clsName="o" />
+                <Square clsName="x"/>
+                <Square clsName="o"/>
             </div>
             <AnimatePresence>
                 {winner && (
                     <motion.div
                         key={"parent-box"}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        exit={{opacity: 0}}
                         className="winner"
                     >
                         <motion.div
                             key={"child-box"}
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            exit={{ scale: 0, opacity: 0 }}
+                            initial={{scale: 0}}
+                            animate={{scale: 1}}
+                            exit={{scale: 0, opacity: 0}}
                             className="text"
                         >
                             <motion.h2
-                                initial={{ scale: 0, y: 100 }}
+                                initial={{scale: 0, y: 100}}
                                 animate={{
                                     scale: 1,
                                     y: 0,
                                     transition: {
-                                        y: { delay: 0.7 },
+                                        y: {delay: 0.7},
                                         duration: 0.7,
                                     },
                                 }}
-                                dangerouslySetInnerHTML={{ __html: getWinningMessage() }}
+                                dangerouslySetInnerHTML={{__html: getWinningMessage()}}
                             />
                             <motion.div
-                                initial={{ scale: 0 }}
+                                initial={{scale: 0}}
                                 animate={{
                                     scale: 1,
                                     transition: {
@@ -132,23 +133,23 @@ function App() {
                             >
                                 {winner === "x | o" ? (
                                     <>
-                                        <Square clsName="x" />
-                                        <Square clsName="o" />
+                                        <Square clsName="x"/>
+                                        <Square clsName="o"/>
                                     </>
                                 ) : (
                                     <>
-                                        <Square clsName={winner} />
+                                        <Square clsName={winner}/>
                                     </>
                                 )}
                             </motion.div>
                             <motion.div
-                                initial={{ scale: 0 }}
+                                initial={{scale: 0}}
                                 animate={{
                                     scale: 1,
-                                    transition: { delay: 1.5, duration: 0.3 },
+                                    transition: {delay: 1.5, duration: 0.3},
                                 }}
                             >
-                                <Button resetGame={resetGame} />
+                                <Button resetGame={resetGame}/>
                             </motion.div>
                         </motion.div>
                     </motion.div>
